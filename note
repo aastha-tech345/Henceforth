@@ -1,0 +1,257 @@
+APIs Breakdown and Explanation:
+
+1. User Signup and Login APIs
+Signup API: http://localhost:5000/api/signup
+
+Method: POST
+Description:
+This API is used for user registration. The user submits their email and password.
+If the email is new, the system will create a new user record and return an access token (JWT) for that user.
+This token is used in subsequent requests to authorize and authenticate the user.
+
+Request > >
+{
+  "email": "admin@gmail.com",
+  "password": "Password"
+}
+
+Response > >
+{
+    "message": "User registered successfully",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzk5MWM3NzgxYjk3OTVjZjQyOGE3ZDIiLCJpYXQiOjE3MzgwODc1NDMsImV4cCI6MTczODA5MTE0M30.vWlBKRp7L2LwNzDCg-TMepuAV7_TUnMkMvHoN0o1-yQ"
+}
+
+======================================================================================================
+
+2. Login API http://localhost:5000/api/login
+
+Method: POST
+Description:
+If the email already exists in the database, the system logs the user in and generates an access token for the user.
+The user’s credentials (email and password) are validated, and if successful, the access token is returned.
+Request > >
+{
+  "email": "admin@gmail.com",
+  "password": "Password"
+}
+
+Response > >
+{
+    "message": "Login successful",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzk5MWM3NzgxYjk3OTVjZjQyOGE3ZDIiLCJpYXQiOjE3MzgwODc2NDgsImV4cCI6MTczODA5MTI0OH0.w6Ud8lcIxCOxwZNZNGjowI-4GAq53jDz9ibA_o8J-6M"
+}
+
+======================================================================================================
+
+3. Tasks Management API
+Task List API http://localhost:5000/api/tasks
+
+Method: GET
+Description:
+This API retrieves a list of all tasks associated with the logged-in user.
+The Authorization header must include the access token received from login/signup.
+
+Example header > >
+Authorization: Bearer <access_token>
+
+======================================================================================================
+
+4. Search and Pagination API http://localhost:5000/api/tasks?search=Complete&page=1&limit=10
+
+Method: GET
+Description: This API allows the user to search through tasks with a query string.
+The results are paginated, meaning only a certain number of tasks (10 per page) are shown at a time.
+Parameters:
+search: The keyword or filter term to search for in task data (task titles or descriptions).
+page: The page number to retrieve (for pagination).
+limit: The number of items to display per page.
+
+Request > >
+GET http://localhost:5000/api/tasks?search=Complete&page=1&limit=10
+
+Response > >
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "679918aef00c9afc2fcf22f2",
+            "userId": "679917cbf00c9afc2fcf22e4",
+            "title": "Complete Task Create4",
+            "description": "add new data1",
+            "completed": false,
+            "createdAt": "2025-01-28T17:49:34.305Z",
+            "updatedAt": "2025-01-28T17:49:34.305Z",
+            "__v": 0
+        },
+        {
+            "_id": "679918b1f00c9afc2fcf22f5",
+            "userId": "679917cbf00c9afc2fcf22e4",
+            "title": "Complete Task Create43",
+            "description": "add new data1",
+            "completed": false,
+            "createdAt": "2025-01-28T17:49:37.251Z",
+            "updatedAt": "2025-01-28T17:49:37.251Z",
+            "__v": 0
+        },
+        {
+            "_id": "679918b3f00c9afc2fcf22f8",
+            "userId": "679917cbf00c9afc2fcf22e4",
+            "title": "Complete Task Create343",
+            "description": "add new data1",
+            "completed": false,
+            "createdAt": "2025-01-28T17:49:39.441Z",
+            "updatedAt": "2025-01-28T17:49:39.441Z",
+            "__v": 0
+        },
+        {
+            "_id": "679918b6f00c9afc2fcf22fb",
+            "userId": "679917cbf00c9afc2fcf22e4",
+            "title": "Complete Task Create3343",
+            "description": "add new data1",
+            "completed": false,
+            "createdAt": "2025-01-28T17:49:42.460Z",
+            "updatedAt": "2025-01-28T17:49:42.460Z",
+            "__v": 0
+        },
+        {
+            "_id": "679918b8f00c9afc2fcf22fe",
+            "userId": "679917cbf00c9afc2fcf22e4",
+            "title": "Complete Task Create33343",
+            "description": "add new data1",
+            "completed": false,
+            "createdAt": "2025-01-28T17:49:44.814Z",
+            "updatedAt": "2025-01-28T17:49:44.814Z",
+            "__v": 0
+        },
+        {
+            "_id": "679918bbf00c9afc2fcf2301",
+            "userId": "679917cbf00c9afc2fcf22e4",
+            "title": "Complete Task Create333343",
+            "description": "add new data1",
+            "completed": false,
+            "createdAt": "2025-01-28T17:49:47.104Z",
+            "updatedAt": "2025-01-28T17:49:47.104Z",
+            "__v": 0
+        },
+        {
+            "_id": "679918bdf00c9afc2fcf2304",
+            "userId": "679917cbf00c9afc2fcf22e4",
+            "title": "Complete Task 3",
+            "description": "add new data1",
+            "completed": true,
+            "createdAt": "2025-01-28T17:49:49.295Z",
+            "updatedAt": "2025-01-28T18:00:23.667Z",
+            "__v": 0
+        },
+        {
+            "_id": "67991ed281b9795cf428a7d6",
+            "userId": "679917cbf00c9afc2fcf22e4",
+            "title": "Complete Task",
+            "description": "add new",
+            "completed": false,
+            "createdAt": "2025-01-28T18:15:46.729Z",
+            "updatedAt": "2025-01-28T18:15:46.729Z",
+            "__v": 0
+        }
+    ]
+}
+
+======================================================================================================
+
+Get Task Details API http://localhost:5000/api/tasks/{task_id}
+
+Method: GET
+Description:
+This API fetches detailed information for a specific task identified by its unique task_id.
+Example: 679918bdf00c9afc2fcf2304 is the task ID here.
+Request > >
+GET http://localhost:5000/api/tasks/679918bdf00c9afc2fcf2304
+
+Response > >
+
+{
+    "_id": "679918bdf00c9afc2fcf2304",
+    "userId": "679917cbf00c9afc2fcf22e4",
+    "title": "Complete Task 3",
+    "description": "add new data1",
+    "completed": true,
+    "createdAt": "2025-01-28T17:49:49.295Z",
+    "updatedAt": "2025-01-28T18:00:23.667Z",
+    "__v": 0
+}
+
+
+======================================================================================================
+
+3. Task Operations API
+Add Task API http://localhost:5000/api/tasks
+
+Method: POST
+Description:
+This API allows users to create a new task. The task data (like title, description, etc.) is provided in the request body.
+It also ensures no duplicate tasks can be added to the list (task titles or descriptions should be unique).
+Request > >
+{
+  "title": "Complete the project",
+  "description": "Finish the project by tomorrow",
+  "userId":"679917cbf00c9afc2fcf22e4"
+}
+
+Response > >
+
+{
+    "status": 201,
+    "data": {
+        "userId": "679917cbf00c9afc2fcf22e4",
+        "title": "Complete Task",
+        "description": "add new",
+        "completed": false,
+        "_id": "67991ed281b9795cf428a7d6",
+        "createdAt": "2025-01-28T18:15:46.729Z",
+        "updatedAt": "2025-01-28T18:15:46.729Z",
+        "__v": 0
+    },
+    "message": "Task create successfully"
+}
+======================================================================================================
+
+Mark/Unmark Task Complete http://localhost:5000/api/tasks/${task_id}
+
+Method: PUT
+Description:
+This API allows the user to mark a task as complete or incomplete by toggling its status.
+The task_id identifies which task to mark/unmark.
+The status change is reflected in the task.
+
+Request > >
+{
+  "completed": true
+}
+
+Response > >
+
+{
+    "_id": "679918bdf00c9afc2fcf2304",
+    "userId": "679917cbf00c9afc2fcf22e4",
+    "title": "Complete Task 3",
+    "description": "add new data1",
+    "completed": true,
+    "createdAt": "2025-01-28T17:49:49.295Z",
+    "updatedAt": "2025-01-28T18:00:23.667Z",
+    "__v": 0
+}
+
+
+http://localhost:5000/api/signup
+
+http://localhost:5000/api/login
+
+http://localhost:5000/api/tasks
+
+http://localhost:5000/api/tasks?search=Complete&page=1&limit=10
+
+http://localhost:5000/api/tasks/679918bdf00c9afc2fcf2304
+
+
+To see ui response 
+https://www.figma.com/design/UDFS9kGRx5zh8uBoDIpGvG/Untitled?node-id=0-1&t=7cWGoD0HjDkGPL4o-1
