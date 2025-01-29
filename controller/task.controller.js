@@ -28,28 +28,34 @@ exports.addTask = async (req, res) => {
 
 exports.getTasks = async (req, res) => {
   try {
-    const { search, page = 1, limit = 10 } = req.query;
+    const { search, last_id, limit = 10 } = req.query;
     const userId = req.user.userId; // Extract userId from token
 
     if (!userId) {
       return res.status(400).json({ message: "User ID is missing from token" });
     }
 
-    // Create search query
     const query = search
       ? { userId, title: new RegExp(search, "i") }
       : { userId };
 
-    // Convert page and limit to integers
-    const pageNumber = parseInt(page, 10);
     const pageSize = parseInt(limit, 10);
 
-    // Fetch tasks with pagination
-    const tasks = await Task.find(query)
-      .skip((pageNumber - 1) * pageSize)
-      .limit(pageSize);
+    const options = {
+      lean: true,
+      sort: { _id: -1 },
+      limit: pageSize,
+    };
 
-    res.status(200).json({ success: true, data: tasks });
+    if (last_id) {
+      query._id = { $lt: last_id };
+    }
+
+    const tasks = await Task.find(query, {}, options);
+
+    const count = await Task.countDocuments(query);
+
+    res.status(200).json({ success: true, data: tasks, count });
   } catch (error) {
     console.error("Error fetching tasks:", error);
     res.status(500).json({ message: "Internal Server Error" });
