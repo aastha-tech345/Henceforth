@@ -67,95 +67,115 @@ page: The page number to retrieve (for pagination).
 limit: The number of items to display per page.
 
 Request > >
-GET http://localhost:5000/api/tasks?search=Complete&page=1&limit=10
+GET http://localhost:5000/api/tasks?userId=6799cbadb328c8f947811534&limit=10&last_id=6799cc61b328c8f94781155d
 
 Response > >
 {
     "success": true,
     "data": [
         {
-            "_id": "679918aef00c9afc2fcf22f2",
-            "userId": "679917cbf00c9afc2fcf22e4",
-            "title": "Complete Task Create4",
-            "description": "add new data1",
+            "_id": "6799cc5eb328c8f94781155a",
+            "userId": "6799cbadb328c8f947811534",
+            "title": "Complete Tas1",
+            "description": "add new",
             "completed": false,
-            "createdAt": "2025-01-28T17:49:34.305Z",
-            "updatedAt": "2025-01-28T17:49:34.305Z",
+            "createdAt": "2025-01-29T06:36:14.151Z",
+            "updatedAt": "2025-01-29T06:36:14.151Z",
             "__v": 0
         },
         {
-            "_id": "679918b1f00c9afc2fcf22f5",
-            "userId": "679917cbf00c9afc2fcf22e4",
-            "title": "Complete Task Create43",
-            "description": "add new data1",
+            "_id": "6799cbeab328c8f947811551",
+            "userId": "6799cbadb328c8f947811534",
+            "title": "Complete Task8",
+            "description": "add new",
             "completed": false,
-            "createdAt": "2025-01-28T17:49:37.251Z",
-            "updatedAt": "2025-01-28T17:49:37.251Z",
+            "createdAt": "2025-01-29T06:34:18.530Z",
+            "updatedAt": "2025-01-29T06:34:18.530Z",
             "__v": 0
         },
         {
-            "_id": "679918b3f00c9afc2fcf22f8",
-            "userId": "679917cbf00c9afc2fcf22e4",
-            "title": "Complete Task Create343",
-            "description": "add new data1",
+            "_id": "6799cbe7b328c8f94781154e",
+            "userId": "6799cbadb328c8f947811534",
+            "title": "Complete Task7",
+            "description": "add new",
             "completed": false,
-            "createdAt": "2025-01-28T17:49:39.441Z",
-            "updatedAt": "2025-01-28T17:49:39.441Z",
+            "createdAt": "2025-01-29T06:34:15.217Z",
+            "updatedAt": "2025-01-29T06:34:15.217Z",
             "__v": 0
         },
         {
-            "_id": "679918b6f00c9afc2fcf22fb",
-            "userId": "679917cbf00c9afc2fcf22e4",
-            "title": "Complete Task Create3343",
-            "description": "add new data1",
+            "_id": "6799cbe3b328c8f94781154b",
+            "userId": "6799cbadb328c8f947811534",
+            "title": "Complete Task6",
+            "description": "add new",
             "completed": false,
-            "createdAt": "2025-01-28T17:49:42.460Z",
-            "updatedAt": "2025-01-28T17:49:42.460Z",
+            "createdAt": "2025-01-29T06:34:11.037Z",
+            "updatedAt": "2025-01-29T06:34:11.037Z",
             "__v": 0
         },
         {
-            "_id": "679918b8f00c9afc2fcf22fe",
-            "userId": "679917cbf00c9afc2fcf22e4",
-            "title": "Complete Task Create33343",
-            "description": "add new data1",
+            "_id": "6799cbe0b328c8f947811548",
+            "userId": "6799cbadb328c8f947811534",
+            "title": "Complete Task5",
+            "description": "add new",
             "completed": false,
-            "createdAt": "2025-01-28T17:49:44.814Z",
-            "updatedAt": "2025-01-28T17:49:44.814Z",
+            "createdAt": "2025-01-29T06:34:08.075Z",
+            "updatedAt": "2025-01-29T06:34:08.075Z",
             "__v": 0
         },
         {
-            "_id": "679918bbf00c9afc2fcf2301",
-            "userId": "679917cbf00c9afc2fcf22e4",
-            "title": "Complete Task Create333343",
-            "description": "add new data1",
+            "_id": "6799cbdbb328c8f947811545",
+            "userId": "6799cbadb328c8f947811534",
+            "title": "Complete Task4",
+            "description": "add new",
             "completed": false,
-            "createdAt": "2025-01-28T17:49:47.104Z",
-            "updatedAt": "2025-01-28T17:49:47.104Z",
+            "createdAt": "2025-01-29T06:34:03.615Z",
+            "updatedAt": "2025-01-29T06:34:03.615Z",
             "__v": 0
         },
         {
-            "_id": "679918bdf00c9afc2fcf2304",
-            "userId": "679917cbf00c9afc2fcf22e4",
-            "title": "Complete Task 3",
-            "description": "add new data1",
-            "completed": true,
-            "createdAt": "2025-01-28T17:49:49.295Z",
-            "updatedAt": "2025-01-28T18:00:23.667Z",
+            "_id": "6799cbd7b328c8f947811542",
+            "userId": "6799cbadb328c8f947811534",
+            "title": "Complete Task3",
+            "description": "add new",
+            "completed": false,
+            "createdAt": "2025-01-29T06:33:59.340Z",
+            "updatedAt": "2025-01-29T06:33:59.340Z",
             "__v": 0
         },
         {
-            "_id": "67991ed281b9795cf428a7d6",
-            "userId": "679917cbf00c9afc2fcf22e4",
+            "_id": "6799cbd3b328c8f94781153f",
+            "userId": "6799cbadb328c8f947811534",
+            "title": "Complete Task2",
+            "description": "add new",
+            "completed": false,
+            "createdAt": "2025-01-29T06:33:55.712Z",
+            "updatedAt": "2025-01-29T06:33:55.712Z",
+            "__v": 0
+        },
+        {
+            "_id": "6799cbd0b328c8f94781153c",
+            "userId": "6799cbadb328c8f947811534",
+            "title": "Complete Task1",
+            "description": "add new",
+            "completed": false,
+            "createdAt": "2025-01-29T06:33:52.296Z",
+            "updatedAt": "2025-01-29T06:33:52.296Z",
+            "__v": 0
+        },
+        {
+            "_id": "6799cbccb328c8f947811539",
+            "userId": "6799cbadb328c8f947811534",
             "title": "Complete Task",
             "description": "add new",
             "completed": false,
-            "createdAt": "2025-01-28T18:15:46.729Z",
-            "updatedAt": "2025-01-28T18:15:46.729Z",
+            "createdAt": "2025-01-29T06:33:48.766Z",
+            "updatedAt": "2025-01-29T06:33:48.766Z",
             "__v": 0
         }
-    ]
+    ],
+    "count": 10
 }
-
 ======================================================================================================
 
 Get Task Details API http://localhost:5000/api/tasks/{task_id}
