@@ -35,27 +35,21 @@ exports.getTasks = async (req, res) => {
       return res.status(400).json({ message: "User ID is missing from token" });
     }
 
+    const pageSize = parseInt(limit, 10);
+
     const query = search
       ? { userId, title: new RegExp(search, "i") }
       : { userId };
-
-    const pageSize = parseInt(limit, 10);
-
-    const options = {
-      lean: true,
-      sort: { _id: -1 },
-      limit: pageSize,
-    };
-
     if (last_id) {
       query._id = { $lt: last_id };
     }
 
-    const tasks = await Task.find(query, {}, options);
-
+    const tasks = await Task.find(query)
+      .sort({ _id: -1 }) 
+      .limit(pageSize);
     const count = await Task.countDocuments(query);
 
-    res.status(200).json({ success: true, data: tasks, count });
+    res.status(200).json({ success: true, data: tasks, total: count });
   } catch (error) {
     console.error("Error fetching tasks:", error);
     res.status(500).json({ message: "Internal Server Error" });
